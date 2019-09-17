@@ -1,0 +1,31 @@
+## Space Launches from Tidy Tuesday
+## Comparison of Number of Launches by Each State Org.
+## Author : Kelsey Atkins 17-Sep-19
+
+# clear workspace
+rm(list=ls())
+
+# load packages
+library(tidyverse)
+
+# set working directory
+setwd("C:/Users/ksatk/OneDrive/Desktop/R project/tidytuesday_space launches/tidytuesday/data/2019/2019-01-15")
+
+# load(read) .csv data for space launches
+agencies <- read_csv("agencies.csv")
+
+ls()
+
+# view data in table format
+view(agencies)
+
+# plot and compile data due to their respective State Org. and Class of Launch
+ggplot(data=agencies) + 
+  geom_col(mapping = aes(x = state_code, y = count, color = class)) + 
+  # Axis labels and Color for Agency distinction
+  labs(x = "State Code", y = "Number of Launches", title = "Number and Class of Launches by Each State") 
+
+# Saving the plot
+ggsave("C:/Users/ksatk/OneDrive/Desktop/R project/tidytuesday_space launches")
+
+#End of Code
